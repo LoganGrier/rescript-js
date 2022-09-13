@@ -1,7 +1,7 @@
 open Jest
 open Expect
 open ReScriptJs.Js
-open NumericType
+open NumericType.Constraint
 open ConstrainedType
 
 describe("UInt8", () => {
@@ -9,7 +9,7 @@ describe("UInt8", () => {
     "isSatisfied",
     list{(0, true), (1, true), (255, true), (42, true), (-1, false), (256, false)},
     ((value, expected)) => {
-      expect(Constraint.isSatisfied(module(UInt8), value))->toBe(expected)
+      expect(Constraint.isSatisfied(module(Uint8), value))->toBe(expected)
     },
   )
 })
@@ -27,7 +27,7 @@ describe("UInt16", () => {
     "isSatisfied",
     list{(0, true), (1, true), (65535, true), (42, true), (-1, false), (65536, false)},
     ((value, expected)) => {
-      expect(Constraint.isSatisfied(module(UInt16), value))->toBe(expected)
+      expect(Constraint.isSatisfied(module(Uint16), value))->toBe(expected)
     },
   )
 })
@@ -63,7 +63,7 @@ describe("UInt32", () => {
       (0.5, false),
     },
     ((value, expected)) => {
-      expect(Constraint.isSatisfied(module(UInt32), value))->toBe(expected)
+      expect(Constraint.isSatisfied(module(Uint32), value))->toBe(expected)
     },
   )
 })
@@ -80,7 +80,7 @@ describe("UInt64", () => {
       (fromString("18446744073709551616"), false),
     },
     ((value, expected)) => {
-      expect(Constraint.isSatisfied(module(UInt64), value))->toBe(expected)
+      expect(Constraint.isSatisfied(module(Uint64), value))->toBe(expected)
     },
   )
 })

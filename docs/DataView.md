@@ -29,8 +29,8 @@ let buffer = ArrayBuffer.make(64)
 let dataView = fromBuffer(buffer)
 
 // Setting and getting a value using ConstrainedType for extra safety
-setUint8(dataview, 0, Value.makeExn(42, ~constraint_=module(UInt8)))
-let value: Value.t<int, UInt8.identity> = getUint8(dataview, 0) // Set value to 42
+setUint8(dataview, 0, uint8Exn(42))
+let value: uint8= getUint8(dataview, 0) // Set value to 42
 let rawValue: int = value->Value.value // Sets rawValue = 42
 
 // Setting and getting a value without ConstrainedType
