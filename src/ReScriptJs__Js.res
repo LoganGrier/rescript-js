@@ -67,3 +67,5 @@ type null<+'a> = Js.null<'a>
 type undefined<+'a> = Js.undefined<'a>
 
 type nullable<+'a> = Js.nullable<'a>
+
+module NumericType = Js__NumericType
