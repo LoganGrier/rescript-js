@@ -15,9 +15,6 @@ type t<'a>
 
 @get external length: t<'a> => int = "length"
 
-// While the JS version of copyWithin, fill, sort, and reverse returns 
-// the array argument passed into it, we don't since function chaining 
-// isn't idiomatic in ReScript and would make the interface less intuitive.
 @send external copyAllWithin: (t<'a>, ~target: int) => unit = "copyWithin"
 @send external copyWithinToEnd: (t<'a>, ~target: int, ~start: int) => unit = "copyWithin"
 @send
