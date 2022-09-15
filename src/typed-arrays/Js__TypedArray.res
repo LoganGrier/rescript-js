@@ -10,8 +10,8 @@ type t<'a>
 @send external setArray: (t<'a>, array<'a>) => unit = "set"
 @send external setArrayFrom: (t<'a>, array<'a>, ~from: int) => unit = "set"
 
-@send external setTypedArray: (t<'a>, t<'b>) => unit = "set"
-@send external setTypedArrayFrom: (t<'a>, t<'b>, ~from: int) => unit = "set"
+@send external setTypedArray: (t<'a>, t<'a>) => unit = "set"
+@send external setTypedArrayFrom: (t<'a>, t<'a>, ~from: int) => unit = "set"
 
 @get external length: t<'a> => int = "length"
 
