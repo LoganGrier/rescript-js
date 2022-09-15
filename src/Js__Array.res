@@ -1,6 +1,3 @@
-@val external from: 'a => array<'b> = "Array.from"
-@val external fromWithMap: ('a, 'b => 'c) => array<'c> = "Array.from"
-
 @val external fromArrayLike: Js.Array2.array_like<'a> => array<'a> = "Array.from"
 @val
 external fromArrayLikeWithMap: (Js.Array2.array_like<'a>, 'a => 'b) => array<'a> = "Array.from"
@@ -100,3 +97,5 @@ external spliceInPlace: (array<'a>, ~start: int, ~remove: int, ~insert: array<'a
 @get_index external getSymbol: (array<'a>, Js__Symbol.t) => option<'b> = ""
 @get_index external getSymbolUnsafe: (array<'a>, Js__Symbol.t) => 'b = ""
 @set_index external setSymbol: (array<'a>, Js__Symbol.t, 'b) => unit = ""
+
+external asArrayLike: array<'a> => Js.Array2.array_like<'a> = "%identity"

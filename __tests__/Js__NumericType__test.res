@@ -4,7 +4,7 @@ open ReScriptJs.Js
 open NumericType.Constraint
 open ConstrainedType
 
-describe("UInt8", () => {
+describe("Uint8", () => {
   testAll(
     "isSatisfied",
     list{(0, true), (1, true), (255, true), (42, true), (-1, false), (256, false)},
@@ -22,7 +22,7 @@ describe("Int8", () => {
     },
   )
 })
-describe("UInt16", () => {
+describe("Uint16", () => {
   testAll(
     "isSatisfied",
     list{(0, true), (1, true), (65535, true), (42, true), (-1, false), (65536, false)},
@@ -48,7 +48,7 @@ describe("Int16", () => {
     },
   )
 })
-describe("UInt32", () => {
+describe("Uint32", () => {
   testAll(
     "isSatisfied",
     list{
@@ -67,7 +67,7 @@ describe("UInt32", () => {
     },
   )
 })
-describe("UInt64", () => {
+describe("Uint64", () => {
   open Js__BigInt
   testAll(
     "isSatisfied",
