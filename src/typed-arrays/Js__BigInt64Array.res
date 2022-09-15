@@ -22,4 +22,5 @@ two's complement.
 @throws TypeError if data isn't an array-like or iterable, or if any of the elements of
 data are not a boolean, bigint, or string.
 */
-@val external fromConverted: 'a => t = "BigInt64Array.from"
+@val
+external fromConverted: 'a => t = "BigInt64Array.from"

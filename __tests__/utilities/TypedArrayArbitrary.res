@@ -2,7 +2,8 @@ open FastCheck.Arbitrary
 open ReScriptJs.Js
 open NumericTypeArbitrary
 
-let typedArrayArb = (elementArb, fromArray) => (~minSize, ~maxSize) => Combinators.arrayWithLength(elementArb(), minSize, maxSize)->Derive.map(fromArray)
+let typedArrayArb = (elementArb, fromArray, ~minSize, ~maxSize) =>
+  Combinators.arrayWithLength(elementArb(), minSize, maxSize)->Derive.map(fromArray)
 
 let bigInt64Array = typedArrayArb(int64Arb, BigInt64Array.fromArray)
 let bigUint64Array = typedArrayArb(uint64Arb, BigUint64Array.fromArray)

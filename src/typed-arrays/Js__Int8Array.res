@@ -9,8 +9,7 @@ module Constants = {
 @new external fromBuffer: Js__ArrayBuffer.t => t = "Int8Array"
 @new external fromBufferToEnd: (Js__ArrayBuffer.t, ~byteOffset: int) => t = "Int8Array"
 @new
-external fromBufferWithRange: (Js__ArrayBuffer.t, ~byteOffset: int, ~length: int) => t =
-  "Int8Array"
+external fromBufferWithRange: (Js__ArrayBuffer.t, ~byteOffset: int, ~length: int) => t = "Int8Array"
 @new external fromLength: int => t = "Int8Array"
 @val external fromArray: array<element> => t = "Int8Array.from"
 @val external fromIterator: Js__Iterator.t<element> => t = "Int8Array.from"

@@ -52,7 +52,7 @@ type uint16 = Value.t<int, Uint16.identity>
 type int16 = Value.t<int, Int16.identity>
 type uint32 = Value.t<float, Uint32.identity>
 type int32 = int
-// Rescript has a built-in int64 in the global namespace so we prefix our 64 bit 
+// Rescript has a built-in int64 in the global namespace so we prefix our 64 bit
 // integer names with"big" to avoid redefining int64
 type biguint64 = Value.t<Js__BigInt.t, Uint64.identity>
 type bigint64 = Value.t<Js__BigInt.t, Int64.identity>

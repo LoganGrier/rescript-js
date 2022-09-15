@@ -1,11 +1,26 @@
-let bigInt64Array: (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__BigInt64Array.t>
-let bigUint64Array : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__BigUint64Array.t>
-let float32Array : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Float32Array.t>
-let float64Array : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Float64Array.t>
-let int8Array : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Int8Array.t>
-let int16Array : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Int16Array.t>
-let int32Array : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Int32Array.t>
-let uint8Array : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Uint8Array.t>
-let uint8ClampedArray : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Uint8ClampedArray.t>
-let uint16Array : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Uint16Array.t>
-let uint32Array : (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Uint32Array.t>
+let bigInt64Array: (
+  ~minSize: int,
+  ~maxSize: int,
+) => FastCheck.Arbitrary.arbitrary<Js__BigInt64Array.t>
+let bigUint64Array: (
+  ~minSize: int,
+  ~maxSize: int,
+) => FastCheck.Arbitrary.arbitrary<Js__BigUint64Array.t>
+let float32Array: (
+  ~minSize: int,
+  ~maxSize: int,
+) => FastCheck.Arbitrary.arbitrary<Js__Float32Array.t>
+let float64Array: (
+  ~minSize: int,
+  ~maxSize: int,
+) => FastCheck.Arbitrary.arbitrary<Js__Float64Array.t>
+let int8Array: (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Int8Array.t>
+let int16Array: (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Int16Array.t>
+let int32Array: (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Int32Array.t>
+let uint8Array: (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Uint8Array.t>
+let uint8ClampedArray: (
+  ~minSize: int,
+  ~maxSize: int,
+) => FastCheck.Arbitrary.arbitrary<Js__Uint8ClampedArray.t>
+let uint16Array: (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Uint16Array.t>
+let uint32Array: (~minSize: int, ~maxSize: int) => FastCheck.Arbitrary.arbitrary<Js__Uint32Array.t>

@@ -20,4 +20,5 @@ external fromBufferWithRange: (Js__ArrayBuffer.t, ~byteOffset: int, ~length: int
 @throws TypeError if data isn't an array-like or iterable, or if any of the elements of
 data are not a boolean, bigint, or string.
 */
-@val external fromConverted: 'a => t = "BigUint64Array.from"
+@val
+external fromConverted: 'a => t = "BigUint64Array.from"
