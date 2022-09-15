@@ -13,5 +13,6 @@ external fromBufferWithRange: (Js__ArrayBuffer.t, ~byteOffset: int, ~length: int
   "Float64Array"
 @new external fromLength: int => t = "Float64Array"
 @val external fromArray: array<element> => t = "Float64Array.from"
+@val external fromArrayLike: Js.Array2.array_like<element> => t = "Float64Array.from"
 @val external fromIterator: Js__Iterator.t<element> => t = "Float64Array.from"
 @val external fromConverted: 'a => t = "Float64Array.from"

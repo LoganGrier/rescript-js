@@ -12,5 +12,6 @@ module Constants = {
 external fromBufferWithRange: (Js__ArrayBuffer.t, ~byteOffset: int, ~length: int) => t = "Int8Array"
 @new external fromLength: int => t = "Int8Array"
 @val external fromArray: array<element> => t = "Int8Array.from"
+@val external fromArrayLike: Js.Array2.array_like<element> => t = "Int8Array.from"
 @val external fromIterator: Js__Iterator.t<element> => t = "Int8Array.from"
 @val external fromConverted: 'a => t = "Int8Array.from"

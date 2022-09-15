@@ -13,6 +13,7 @@ external fromBufferWithRange: (Js__ArrayBuffer.t, ~byteOffset: int, ~length: int
   "BigInt64Array"
 @new external fromLength: int => t = "BigInt64Array"
 @val external fromArray: array<element> => t = "BigInt64Array.from"
+@val external fromArrayLike: Js.Array2.array_like<element> => t = "BigInt64Array.from"
 @val external fromIterator: Js__Iterator.t<element> => t = "BigInt64Array.from"
 /**
 @parameter data An array-like or iterable object where each element is a boolean, bigint, or string.

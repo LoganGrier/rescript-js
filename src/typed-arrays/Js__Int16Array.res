@@ -13,5 +13,6 @@ external fromBufferWithRange: (Js__ArrayBuffer.t, ~byteOffset: int, ~length: int
   "Int16Array"
 @new external fromLength: int => t = "Int16Array"
 @val external fromArray: array<element> => t = "Int16Array.from"
+@val external fromArrayLike: Js.Array2.array_like<element> => t = "Int16Array.from"
 @val external fromIterator: Js__Iterator.t<element> => t = "Int16Array.from"
 @val external fromConverted: 'a => t = "Int16Array.from"
