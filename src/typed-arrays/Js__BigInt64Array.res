@@ -1,11 +1,10 @@
 type element = Js__NumericType.bigint64
-type t = Js__TypedArray.t<element>
+type t
 
 module Constants = {
   @val external bytesPerElement: int = "BigInt64Array.BYTES_PER_ELEMENT"
 }
 
-@new external copy: t => t = "BigInt64Array"
 @new external fromBuffer: Js__ArrayBuffer.t => t = "BigInt64Array"
 @new external fromBufferToEnd: (Js__ArrayBuffer.t, ~byteOffset: int) => t = "BigInt64Array"
 @new
@@ -25,3 +24,8 @@ data are not a boolean, bigint, or string.
 */
 @val
 external fromConverted: 'a => t = "BigInt64Array.from"
+
+include Js__TypedArray.TypedArray({
+  type typedArray = t
+  type element = element
+})

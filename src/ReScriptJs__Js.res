@@ -28,7 +28,6 @@ module Set = Js__Set
 module WeakSet = Js__WeakSet
 
 module ArrayBuffer = Js__ArrayBuffer
-module TypedArray = Js__TypedArray
 module Float32Array = Js__Float32Array
 module Float64Array = Js__Float64Array
 module Int8Array = Js__Int8Array

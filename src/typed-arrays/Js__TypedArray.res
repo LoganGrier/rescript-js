@@ -1,77 +1,83 @@
-type t<'a>
+module type Args = {
+  type typedArray
+  type element
+}
 
-@get_index external get: (t<'a>, int) => option<'a> = ""
-@set_index external set: (t<'a>, int, 'a) => unit = ""
+module TypedArray = (Args: Args) => {
+  open Args
+  @get_index external get: (typedArray, int) => option<element> = ""
+  @set_index external set: (typedArray, int, element) => unit = ""
 
-@get external buffer: t<'a> => Js__ArrayBuffer.t = "buffer"
-@get external byteLength: t<'a> => int = "byteLength"
-@get external byteOffset: t<'a> => int = "byteOffset"
+  @get external buffer: typedArray => Js__ArrayBuffer.t = "buffer"
+  @get external byteLength: typedArray => int = "byteLength"
+  @get external byteOffset: typedArray => int = "byteOffset"
 
-@send external setArray: (t<'a>, array<'a>) => unit = "set"
-@send external setArrayFrom: (t<'a>, array<'a>, ~from: int) => unit = "set"
+  @send external setArray: (typedArray, array<element>) => unit = "set"
+  @send external setArrayFrom: (typedArray, array<element>, ~from: int) => unit = "set"
 
-@send external setTypedArray: (t<'a>, t<'a>) => unit = "set"
-@send external setTypedArrayFrom: (t<'a>, t<'a>, ~from: int) => unit = "set"
+  @send external setTypedArray: (typedArray, typedArray) => unit = "set"
+  @send external setTypedArrayFrom: (typedArray, typedArray, ~from: int) => unit = "set"
 
-@get external length: t<'a> => int = "length"
+  @get external length: typedArray => int = "length"
 
-@send external copyAllWithin: (t<'a>, ~target: int) => unit = "copyWithin"
-@send external copyWithinToEnd: (t<'a>, ~target: int, ~start: int) => unit = "copyWithin"
-@send
-external copyWithin: (t<'a>, ~target: int, ~start: int, ~end: int) => unit = "copyWithin"
+  @send external copyAllWithin: (typedArray, ~target: int) => unit = "copyWithin"
+  @send external copyWithinToEnd: (typedArray, ~target: int, ~start: int) => unit = "copyWithin"
+  @send
+  external copyWithin: (typedArray, ~target: int, ~start: int, ~end: int) => unit = "copyWithin"
 
-@send external fillAll: (t<'a>, 'a) => unit = "fill"
-@send external fillToEnd: (t<'a>, 'a, ~start: int) => unit = "fill"
-@send external fill: (t<'a>, 'a, ~start: int, ~end: int) => unit = "fill"
+  @send external fillAll: (typedArray, element) => unit = "fill"
+  @send external fillToEnd: (typedArray, element, ~start: int) => unit = "fill"
+  @send external fill: (typedArray, element, ~start: int, ~end: int) => unit = "fill"
 
-@send external reverse: t<'a> => unit = "reverse"
-@send external sort: (t<'a>, ('a, 'a) => int) => unit = "sort"
+  @send external reverse: typedArray => unit = "reverse"
+  @send external sort: (typedArray, (element, element) => int) => unit = "sort"
 
-@send external includes: (t<'a>, 'a) => bool = "includes"
+  @send external includes: (typedArray, element) => bool = "includes"
 
-@send external indexOf: (t<'a>, 'a) => int = "indexOf"
-@send external indexOfFrom: (t<'a>, 'a, ~from: int) => int = "indexOf"
+  @send external indexOf: (typedArray, element) => int = "indexOf"
+  @send external indexOfFrom: (typedArray, element, ~from: int) => int = "indexOf"
 
-@send external joinWith: (t<'a>, string) => string = "join"
+  @send external joinWith: (typedArray, string) => string = "join"
 
-@send external lastIndexOf: (t<'a>, 'a) => int = "lastIndexOf"
-@send external lastIndexOfFrom: (t<'a>, 'a, ~from: int) => int = "lastIndexOf"
+  @send external lastIndexOf: (typedArray, element) => int = "lastIndexOf"
+  @send external lastIndexOfFrom: (typedArray, element, ~from: int) => int = "lastIndexOf"
 
-@send external slice: (t<'a>, ~from: int, ~end: int) => t<'a> = "slice"
-@send external sliceToEnd: (t<'a>, ~from: int) => t<'a> = "slice"
-@send external copy: t<'a> => t<'a> = "slice"
+  @send external slice: (typedArray, ~from: int, ~end: int) => typedArray = "slice"
+  @send external sliceToEnd: (typedArray, ~from: int) => typedArray = "slice"
+  @send external copy: typedArray => typedArray = "slice"
 
-@send external subarray: (t<'a>, ~from: int, ~end: int) => t<'a> = "subarray"
-@send external subarrayToEnd: (t<'a>, ~from: int) => t<'a> = "subarray"
+  @send external subarray: (typedArray, ~from: int, ~end: int) => typedArray = "subarray"
+  @send external subarrayToEnd: (typedArray, ~from: int) => typedArray = "subarray"
 
-@send external toString: t<'a> => string = "toString"
-@send external toLocaleString: t<'a> => string = "toLocaleString"
+  @send external toString: typedArray => string = "toString"
+  @send external toLocaleString: typedArray => string = "toLocaleString"
 
-@send external every: (t<'a>, 'a => bool) => bool = "every"
-@send external everyWithIndex: (t<'a>, ('a, int) => bool) => bool = "every"
+  @send external every: (typedArray, element => bool) => bool = "every"
+  @send external everyWithIndex: (typedArray, (element, int) => bool) => bool = "every"
 
-@send external filter: (t<'a>, 'a => bool) => t<'a> = "filter"
-@send external filterWithIndex: (t<'a>, ('a, int) => bool) => t<'a> = "filter"
+  @send external filter: (typedArray, element => bool) => typedArray = "filter"
+  @send external filterWithIndex: (typedArray, (element, int) => bool) => typedArray = "filter"
 
-@send external find: (t<'a>, 'a => bool) => option<'a> = "find"
-@send external findWithIndex: (t<'a>, ('a, int) => bool) => option<'a> = "find"
+  @send external find: (typedArray, element => bool) => option<element> = "find"
+  @send external findWithIndex: (typedArray, (element, int) => bool) => option<element> = "find"
 
-@send external findIndex: (t<'a>, 'a => bool) => int = "findIndex"
-@send external findIndexWithIndex: (t<'a>, ('a, int) => bool) => int = "findIndex"
+  @send external findIndex: (typedArray, element => bool) => int = "findIndex"
+  @send external findIndexWithIndex: (typedArray, (element, int) => bool) => int = "findIndex"
 
-@send external forEach: (t<'a>, 'a => unit) => unit = "forEach"
-@send external forEachWithIndex: (t<'a>, ('a, int) => unit) => unit = "forEach"
+  @send external forEach: (typedArray, element => unit) => unit = "forEach"
+  @send external forEachWithIndex: (typedArray, (element, int) => unit) => unit = "forEach"
 
-@send external map: (t<'a>, 'a => 'b) => t<'b> = "map"
-@send external mapWithIndex: (t<'a>, ('a, int) => 'b) => t<'b> = "map"
+  @send external map: (typedArray, element => element) => typedArray = "map"
+  @send external mapWithIndex: (typedArray, (element, int) => element) => typedArray = "map"
 
-@send external reduce: (t<'a>, ('b, 'a) => 'b, 'b) => 'b = "reduce"
-@send external reduceWithIndex: (t<'a>, ('b, 'a, int) => 'b, 'b) => 'b = "reduce"
+  @send external reduce: (typedArray, ('acc, element) => 'acc, 'acc) => 'acc = "reduce"
+  @send external reduceWithIndex: (typedArray, ('acc, element, int) => 'acc, 'acc) => 'acc = "reduce"
 
-@send external reduceRight: (t<'a>, ('b, 'a) => 'b, 'b) => 'b = "reduceRight"
-@send external reduceRightWithIndex: (t<'a>, ('b, 'a, int) => 'b, 'b) => 'b = "reduceRight"
+  @send external reduceRight: (typedArray, ('acc, element) => 'acc, 'acc) => 'acc = "reduceRight"
+  @send external reduceRightWithIndex: (typedArray, ('acc, element, int) => 'acc, 'acc) => 'acc = "reduceRight"
 
-@send external some: (t<'a>, 'a => bool) => bool = "some"
-@send external someWithIndex: (t<'a>, ('a, int) => bool) => bool = "some"
+  @send external some: (typedArray, element => bool) => bool = "some"
+  @send external someWithIndex: (typedArray, (element, int) => bool) => bool = "some"
 
-external asArrayLike: t<'a> => Js.Array2.array_like<'a> = "%identity"
+  external asArrayLike: typedArray => Js.Array2.array_like<element> = "%identity"
+}
