@@ -15,17 +15,20 @@ type t<'a>
 
 @get external length: t<'a> => int = "length"
 
-@send external copyAllWithin: (t<'a>, ~target: int) => array<'a> = "copyWithin"
-@send external copyWithinToEnd: (t<'a>, ~target: int, ~start: int) => array<'a> = "copyWithin"
+// While the JS version of copyWithin, fill, sort, and reverse returns 
+// the array argument passed into it, we don't since function chaining 
+// isn't idiomatic in ReScript and would make the interface less intuitive.
+@send external copyAllWithin: (t<'a>, ~target: int) => unit = "copyWithin"
+@send external copyWithinToEnd: (t<'a>, ~target: int, ~start: int) => unit = "copyWithin"
 @send
-external copyWithin: (t<'a>, ~target: int, ~start: int, ~end: int) => array<'a> = "copyWithin"
+external copyWithin: (t<'a>, ~target: int, ~start: int, ~end: int) => unit = "copyWithin"
 
-@send external fillAllInPlace: (t<'a>, 'a) => t<'a> = "fill"
-@send external fillInPlaceToEnd: (t<'a>, 'a, ~start: int) => t<'a> = "fill"
-@send external fillInPlace: (t<'a>, 'a, ~start: int, ~end: int) => t<'a> = "fill"
+@send external fillAll: (t<'a>, 'a) => unit = "fill"
+@send external fillToEnd: (t<'a>, 'a, ~start: int) => unit = "fill"
+@send external fill: (t<'a>, 'a, ~start: int, ~end: int) => unit = "fill"
 
-@send external reverseInPlace: t<'a> => t<'a> = "reverse"
-@send external sortInPlace: (t<'a>, ('a, 'a) => int) => t<'a> = "sort"
+@send external reverse: t<'a> => unit = "reverse"
+@send external sort: (t<'a>, ('a, 'a) => int) => unit = "sort"
 
 @send external includes: (t<'a>, 'a) => bool = "includes"
 
@@ -73,3 +76,5 @@ external copyWithin: (t<'a>, ~target: int, ~start: int, ~end: int) => array<'a> 
 
 @send external some: (t<'a>, 'a => bool) => bool = "some"
 @send external someWithIndex: (t<'a>, ('a, int) => bool) => bool = "some"
+
+external asArrayLike: t<'a> => Js.Array2.array_like<'a> = "%identity"

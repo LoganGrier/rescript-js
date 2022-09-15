@@ -1,15 +1,17 @@
-// Float instead of int because not all uint32s fit in int32
-type t = Js__TypedArray.t<float>
+type element = Js__NumericType.uint32
+type t = Js__TypedArray.t<element>
 
 module Constants = {
   @val external bytesPerElement: int = "Uint32Array.BYTES_PER_ELEMENT"
 }
 
-@new external make: array<float> => t = "Uint32Array"
-@new external fromBuffer: array<Js__ArrayBuffer.t> => t = "Uint32Array"
-@new external fromBufferToEnd: (array<Js__ArrayBuffer.t>, ~start: int) => t = "Uint32Array"
+@new external copy: t => t = "Uint32Array"
+@new external fromBuffer: Js__ArrayBuffer.t => t = "Uint32Array"
+@new external fromBufferToEnd: (Js__ArrayBuffer.t, ~byteOffset: int) => t = "Uint32Array"
 @new
-external fromBufferWithRange: (array<Js__ArrayBuffer.t>, ~start: int, ~end: int) => t =
+external fromBufferWithRange: (Js__ArrayBuffer.t, ~byteOffset: int, ~length: int) => t =
   "Uint32Array"
 @new external fromLength: int => t = "Uint32Array"
-@val external from: 'a => t = "Uint32Array.from"
+@val external fromArray: array<element> => t = "Uint32Array.from"
+@val external fromIterator: Js__Iterator.t<element> => t = "Uint32Array.from"
+@val external fromConverted: 'a => t = "Uint32Array.from"
