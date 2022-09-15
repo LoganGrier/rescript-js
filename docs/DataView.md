@@ -1,6 +1,6 @@
 # DataView
 
-## Deviations from JavaScripts DataView
+## Deviations from JavaScript's DataView
 
 To reduce defects in client code, we've our DataView module has a slightly different interface from the one built into JavaScript. Specifically, we've made the following changes:
 
